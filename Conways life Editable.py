@@ -132,13 +132,12 @@ while enter_key_not_pressed:
             enter_key_not_pressed = False
 
 
+size_of_square = pixels_per_cell
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
-    size_of_square = pixels_per_cell
     draw_map()
     Cell_map = copy.deepcopy(Create_new_map())
     time.sleep(sleep_time)
-
