@@ -99,14 +99,19 @@ else:
 size_of_square = pixels_per_cell
 time_check = time.time()
 
-enter_key_not_pressed = True
-while enter_key_not_pressed:
+
+def draw_map():
     screen.fill(BLACK)
     for x in coordinate_grid:
         for y in x:
-            if Cell_map[round(y[1]/pixels_per_cell)][round(y[0]/pixels_per_cell)] == 1:
+            if Cell_map[round(y[1] / pixels_per_cell)][round(y[0] / pixels_per_cell)] == 1:
                 pygame.draw.rect(screen, WHITE, (y[1], y[0], size_of_square, size_of_square))
     pygame.display.flip()
+
+
+enter_key_not_pressed = True
+while enter_key_not_pressed:
+    draw_map()
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
@@ -133,12 +138,7 @@ while True:
             pygame.quit()
             sys.exit()
     size_of_square = pixels_per_cell
-    screen.fill(BLACK)
-    for x in coordinate_grid:
-        for y in x:
-            if Cell_map[round(y[1]/pixels_per_cell)][round(y[0]/pixels_per_cell)] == 1:
-                pygame.draw.rect(screen, WHITE, (y[1], y[0], size_of_square, size_of_square))
-    pygame.display.flip()
+    draw_map()
     Cell_map = copy.deepcopy(Create_new_map())
     time.sleep(sleep_time)
 
