@@ -72,7 +72,7 @@ def Create_new_map():
 
 
 pygame.init()
-desired_size = 1920
+desired_size = 1080
 pixels_per_cell = round(desired_size/size)
 screen = pygame.display.set_mode((size*pixels_per_cell, size*pixels_per_cell))
 WHITE = (255, 255, 255)
@@ -93,12 +93,12 @@ if tick_speed_input == 0:
     sleep_time = 0
 else:
     sleep_time = 1/tick_speed_input
+size_of_square = pixels_per_cell
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
-    size_of_square = pixels_per_cell
     screen.fill(BLACK)
     for x in coordinate_grid:
         for y in x:
